@@ -1,7 +1,7 @@
 // 定义全局变量
 @min-width: 1080px;
 @lgutter: calc(50vw - 540px);
-@border-color: #e0e0e0;
+@border-color: #f0f0f0;
 @margin-base: 16px;
 @padding-base: 5px;
 @c-span3: 128px;
@@ -21,14 +21,11 @@
 
   .new-pmd.c-container {
     border: 1px solid @border-color;
+    padding: @margin-base;
 
-    > div {
-      margin: @margin-base;
-    }
-
-    .c-title {
+    h3 {
       border-bottom: 1px solid @border-color;
-      margin-bottom: @margin-base;
+      margin-bottom: calc(@margin-base - 6px);
 
       a {
         margin-bottom: @padding-base;
@@ -58,7 +55,7 @@
 }
 
 // .new-pmd .c-span-last 相关的样式
-.new-pmd .c-span-last {
+.new-pmd .c-span9.c-span-last {
   width: calc(100% - @c-span3 - @margin-base);
 }
 
