@@ -1,1 +1,25 @@
-.h3EKGeHmRRkjbMqYfNUi.DVvtLJTV3L88qPWhM3gI .W4_K5H4AqLL1ngRJt_pk,.h3EKGeHmRRkjbMqYfNUi.DVvtLJTV3L88qPWhM3gI .YL_aMfikzFszfcc4KLSh,.h3EKGeHmRRkjbMqYfNUi.DVvtLJTV3L88qPWhM3gI .aDtqDaYogch0DyrGTrX6{max-width:1080px}
+@width: 1080px;
+@border-color: #f0f0f0;
+
+#web_content_wrapper #react-layout [data-testid="web-vertical"] {
+  section[data-testid="mainline"] {
+    max-width: @width;
+
+    li {
+      border: 1px solid @border-color;
+
+      article {
+        padding: 10px 15px;
+
+        h2 {
+          border-bottom: 1px solid @border-color;
+          margin-bottom: 10px;
+
+          a {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
