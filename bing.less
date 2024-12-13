@@ -1,45 +1,41 @@
 @min-width: 1080px;
 @lgutter: calc(50vw - @min-width / 2);
-@margin-bottom:16px;
-@border-color:#f0f0f0;
+@margin-bottom: 16px;
+@border-color: #f0f0f0;
 
-// 合并相同选择器的样式
 #b_context {
   display: none;
 }
 
-#est_switch {
+#est_switch,
+.b_scopebar {
   margin-left: @lgutter;
 }
 
-#b_header #sb_form {
+#b_header #sb_form,
+#b_content {
   padding-left: @lgutter;
 }
 
 #b_results {
   min-width: @min-width;
-  > li.b_algo{
+
+  > li.b_algo {
     border: 1px solid @border-color;
     margin-bottom: @margin-bottom;
 
-    .b_title{
-      border-bottom:1px solid @border-color;
-      margin-bottom:@margin-bottom;
+    .b_title {
+      border-bottom: 1px solid @border-color;
+      margin-bottom: @margin-bottom;
 
-      h2{
-        margin-top:5px;
-        margin-bottom:5px;
+      h2 {
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
     }
   }
-  #brsv3.b_rs {
-    width:@min-width;
-  }
-}
 
-.b_scopebar{
-  margin-left:@lgutter;
-}
-#b_content{
-  padding-left:@lgutter;
+  #brsv3.b_rs {
+    width: @min-width;
+  }
 }
