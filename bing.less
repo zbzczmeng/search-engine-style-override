@@ -1,5 +1,19 @@
-#b_context{display:none;}
-#est_switch{margin-left:var(--lgutter);}
-#b_header #sb_form{padding-left:var(--lgutter)}
-#b_results{min-width:1080px;}
-:root{--lgutter:calc(50vw - 540px);}
+@min-width: 1080px;
+@lgutter: calc(50vw - @min-width / 2);
+
+// 合并相同选择器的样式
+#b_context {
+  display: none;
+}
+
+#est_switch {
+  margin-left: @lgutter;
+}
+
+#b_header #sb_form {
+  padding-left: @lgutter;
+}
+
+#b_results {
+  min-width: @min-width;
+}
