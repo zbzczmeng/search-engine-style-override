@@ -1,41 +1,157 @@
-@min-width: 1080px;
-@lgutter: calc(50vw - @min-width / 2);
-@margin-bottom: 16px;
-@border-color: #f0f0f0;
-
-#b_context {
-  display: none;
+/* Bing 网页结果 · 清爽阅读 */
+#b_results > li.b_algo {
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 16%, transparent);
 }
 
-#est_switch,
-.b_scopebar {
-  margin-left: @lgutter;
+#b_results > li.b_algo > h2,
+#b_results > li.b_algo > h2 > a {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
 }
 
-#b_header #sb_form,
-#b_content {
-  padding-left: @lgutter;
+#b_results > li.b_algo > .b_caption > p {
+  font-size: 15px !important;
+  line-height: 1.6 !important;
 }
 
-#b_results {
-  min-width: @min-width;
+/* Bing 网页搜索 · 居中宽版 */
+body:has(#b_content #b_results) {
+  min-width: 0 !important;
+  --ac-bing-divider: color-mix(in srgb, currentColor 14%, transparent);
 
-  > li.b_algo {
-    border: 1px solid @border-color;
-    margin-bottom: @margin-bottom;
-
-    .b_title {
-      border-bottom: 1px solid @border-color;
-      margin-bottom: @margin-bottom;
-
-      h2 {
-        margin-top: 5px;
-        margin-bottom: 5px;
-      }
-    }
+  #b_header, #b_content > main {
+    box-sizing: border-box;
+    width: calc(100% - 32px) !important;
+    min-width: 0 !important;
+    max-width: 1000px !important;
+    margin-inline: auto !important;
   }
 
-  #brsv3.b_rs {
-    width: @min-width;
+  #b_header {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "edition tools" "search search" "nav nav";
+    align-items: center;
+    row-gap: 8px;
+    padding-top: 8px !important;
+  }
+
+  #b_header > #est_switch_keepH { display: none; }
+
+  #b_header > #est_switch {
+    grid-area: edition;
+    inset: auto;
+    width: auto;
+    height: auto;
+    margin: 0 !important;
+    padding-inline-start: 38px;
+  }
+
+  #b_header > #id_h {
+    grid-area: tools;
+    inset: auto;
+    justify-self: end;
+  }
+
+  #b_header > #sb_form {
+    grid-area: search;
+    position: static;
+    display: block;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  #sb_form > .b_logoArea {
+    position: absolute;
+    top: 17px;
+    inset-inline-start: 0;
+    margin: 0 !important;
+  }
+
+  #sb_form > .b_searchboxForm {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0;
+    border: 1px solid var(--ac-bing-divider);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+  }
+
+  #sb_form_q {
+    flex: 1 1 0%;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  #sw_as { flex: 0 0 100%; }
+
+  #b_header > .b_scopebar {
+    grid-area: nav;
+    width: 100%;
+    height: auto;
+    margin: 0 !important;
+    border-bottom: 1px solid var(--ac-bing-divider);
+  }
+
+  .b_scopebar > ul {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  #b_content { padding: 18px 0 0 !important; }
+  #b_content > main { display: block; }
+  #b_results { display: block; width: 100% !important; }
+
+  #b_results > li.b_algo {
+    box-sizing: border-box;
+    width: 100%;
+    padding-block: 14px !important;
+    margin-block: 0;
+    border-bottom-color: var(--ac-bing-divider);
+  }
+
+  #b_results > li.b_algo > h2 { margin-block: 3px 4px; }
+  #b_results > li.b_algo > h2 a > strong { color: inherit !important; font-weight: inherit; }
+  #b_footerItems > ul { text-align: center; }
+
+  #b_results .b_acf_answer_expansion_control,
+  #b_results .b_acf_expansion_gradient_overlay { padding-inline: 16px; }
+  #b_results .b_acf_answer_expansion_control { inset-inline: -16px; }
+  #b_results .b_acf_expansion_gradient_overlay { margin-inline: -16px; }
+
+  @media (max-width: 700px) {
+    #b_results .b_rcGbMod,
+    #b_results .b_rcGbModHero,
+    #b_results #brsv3 { box-sizing: border-box; max-width: 100%; }
+
+    #b_results .b_rcGbModCards,
+    #b_results #brsv3 > ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    #b_results .b_rcGbModCards > div,
+    #b_results #brsv3 > ul > li { flex: 1 1 235px; min-width: 0; margin: 0; }
+    #b_results .b_rcGbModCard { width: 100%; }
+  }
+
+  #b_results > li.b_algo .dlux_list,
+  #b_results > li.b_algo .dlux_list .dlux_item { border-block: 0 !important; }
+
+  @media (min-width: 760px) {
+    #b_results .dlux_single > ul {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 26px;
+    }
   }
 }
